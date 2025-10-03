@@ -1,38 +1,49 @@
+/* Global styles for BrightStarz Production */
 .App {
-  text-align: center;
+  text-align: left;
 }
 
+/* Remove default React styles */
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  display: none;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  display: none;
 }
 
-.App-link {
-  color: #61dafb;
+/* Ensure proper layout */
+body {
+  margin: 0;
+  padding: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .hero-bg h1 {
+    font-size: 2.5rem !important;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+/* Additional utility classes */
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #eab308;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ca8a04;
 }
