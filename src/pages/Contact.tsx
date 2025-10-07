@@ -159,7 +159,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="font-bold mb-2">Address</h3>
-                    <p className="text-gray-600">P.O. Box 12345<br />Nairobi, Kenya</p>
+                    <p className="text-gray-600">Nairobi, Kenya</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -168,8 +168,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="font-bold mb-2">Phone</h3>
-                    <p className="text-gray-600">+254 700 123456</p>
-                    <p className="text-gray-600">+254 711 987654</p>
+                    <p className="text-gray-600">+254 700 005399</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -178,38 +177,30 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="font-bold mb-2">Email</h3>
-                    <p className="text-gray-600">info@brightstarz.co.ke</p>
-                    <p className="text-gray-600">bookings@brightstarz.co.ke</p>
+                    <p className="text-gray-600">info@brightstarzproduction.com</p>
                   </div>
                 </div>
-                <div className="flex items-start">
-                  <div className="bg-yellow-100 p-3 rounded-full mr-4">
-                    <i data-feather="clock" className="text-yellow-500 w-6 h-6"></i>
-                  </div>
-                  <div>
-                    <h3 className="font-bold mb-2">Office Hours</h3>
-                    <p className="text-gray-600">Monday - Friday: 8:00 AM - 5:00 PM</p>
-                    <p className="text-gray-600">Saturday: 9:00 AM - 1:00 PM</p>
-                    <p className="text-gray-600">Sunday: Closed</p>
-                  </div>
-                </div>
+
               </div>
 
               {/* Social Media */}
               <div className="mt-12">
                 <h3 className="font-bold mb-4">Follow Us</h3>
                 <div className="flex space-x-4">
-                  <a href="#" className="bg-gray-100 hover:bg-yellow-100 p-3 rounded-full transition duration-300">
+                  <a href="https://www.facebook.com/share/1BU1g1bj3u/" className="bg-gray-100 hover:bg-yellow-100 p-3 rounded-full transition duration-300">
                     <i data-feather="facebook" className="text-gray-600 hover:text-yellow-600 w-5 h-5"></i>
                   </a>
-                  <a href="#" className="bg-gray-100 hover:bg-yellow-100 p-3 rounded-full transition duration-300">
-                    <i data-feather="twitter" className="text-gray-600 hover:text-yellow-600 w-5 h-5"></i>
+                  <a href="https://x.com/brightstarz_prod" className="bg-gray-100 hover:bg-yellow-100 p-3 rounded-full transition duration-300">
+                    <i data-feather="link" className="text-gray-600 hover:text-yellow-600 w-5 h-5"></i>
                   </a>
                   <a href="#" className="bg-gray-100 hover:bg-yellow-100 p-3 rounded-full transition duration-300">
                     <i data-feather="instagram" className="text-gray-600 hover:text-yellow-600 w-5 h-5"></i>
                   </a>
-                  <a href="#" className="bg-gray-100 hover:bg-yellow-100 p-3 rounded-full transition duration-300">
+                  <a href="https://www.youtube.com/@brightstarz-arts" className="bg-gray-100 hover:bg-yellow-100 p-3 rounded-full transition duration-300">
                     <i data-feather="youtube" className="text-gray-600 hover:text-yellow-600 w-5 h-5"></i>
+                  </a>
+                  <a href="https://tiktok.com/@brightstarz6" className="bg-gray-100 hover:bg-yellow-100 p-3 rounded-full transition duration-300">
+                    <i data-feather="link" className="text-gray-600 hover:text-yellow-600 w-5 h-5"></i>
                   </a>
                 </div>
               </div>

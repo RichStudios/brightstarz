@@ -22,17 +22,20 @@ const Footer: React.FC = () => {
               Bringing literature to life and important messages to Kenyan youth through professional theater.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a href="https://www.facebook.com/share/1BU1g1bj3u/" className="text-gray-400 hover:text-white">
                 <i data-feather="facebook"></i>
               </a>
-              <a href="#" className="text-gray-400 hover:text-white">
-                <i data-feather="twitter"></i>
+              <a href="https://x.com/brightstarz_prod" className="text-gray-400 hover:text-white">
+                <i data-feather="link"></i>
               </a>
               <a href="#" className="text-gray-400 hover:text-white">
                 <i data-feather="instagram"></i>
               </a>
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a href="https://www.youtube.com/@brightstarz-arts" className="text-gray-400 hover:text-white">
                 <i data-feather="youtube"></i>
+              </a>
+              <a href="https://tiktok.com/@brightstarz6" className="text-gray-400 hover:text-white">
+                <i data-feather="link"></i>
               </a>
             </div>
           </div>
@@ -53,15 +56,15 @@ const Footer: React.FC = () => {
             <ul className="space-y-2 text-gray-400">
               <li className="flex items-start">
                 <i data-feather="map-pin" className="mr-2 mt-1"></i>
-                <span>P.O. Box 12345, Nairobi, Kenya</span>
+                <span>Nairobi, Kenya</span>
               </li>
               <li className="flex items-center">
                 <i data-feather="phone" className="mr-2"></i>
-                <span>+254 700 123456</span>
+                <span>+254 700 005399</span>
               </li>
               <li className="flex items-center">
                 <i data-feather="mail" className="mr-2"></i>
-                <span>info@brightstarz.co.ke</span>
+                <span>info@brightstarzproduction.com</span>
               </li>
             </ul>
           </div>

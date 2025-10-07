@@ -56,7 +56,7 @@ const Services: React.FC = () => {
             </div>
             <div className="rounded-xl overflow-hidden shadow-lg">
               <img 
-                src="http://static.photos/education/640x480/1" 
+                src="/images/performances/IMG_3540.jpg" 
                 alt="Setbook Performance" 
                 className="w-full h-96 object-cover"
               />
@@ -68,7 +68,7 @@ const Services: React.FC = () => {
             <div className="order-2 md:order-1">
               <div className="rounded-xl overflow-hidden shadow-lg">
                 <img 
-                  src="http://static.photos/people/640x480/2" 
+                src="/images/performances/IMG_6318.jpg" 
                   alt="Sensitization Campaign" 
                   className="w-full h-96 object-cover"
                 />
@@ -136,7 +136,7 @@ const Services: React.FC = () => {
             </div>
             <div className="rounded-xl overflow-hidden shadow-lg">
               <img 
-                src="http://static.photos/office/640x480/3" 
+                src="/images/events/istockphoto-1424987910-612x612.jpg"
                 alt="Partnership Programs" 
                 className="w-full h-96 object-cover"
               />

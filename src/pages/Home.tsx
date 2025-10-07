@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { youtubeVideos } from '../data/videos';
 
 const Home: React.FC = () => {
   React.useEffect(() => {
@@ -8,6 +9,9 @@ const Home: React.FC = () => {
       window.feather.replace();
     }
   }, []);
+
+  const performanceVideo = youtubeVideos.find(video => video.category === 'performance');
+  const campaignVideo = youtubeVideos.find(video => video.category === 'campaign');
 
   return (
     <div>
@@ -74,7 +78,7 @@ const Home: React.FC = () => {
             <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
               <div 
                 className="h-48 bg-cover bg-center" 
-                style={{backgroundImage: "url('http://static.photos/education/640x360/1')"}}
+                style={{backgroundImage: "url('/images/performances/IMG_3540.jpg')"}}
               ></div>
               <div className="p-6">
                 <div className="flex items-center mb-4">
@@ -96,7 +100,7 @@ const Home: React.FC = () => {
             <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
               <div 
                 className="h-48 bg-cover bg-center" 
-                style={{backgroundImage: "url('http://static.photos/people/640x360/2')"}}
+                style={{backgroundImage: "url('/images/performances/IMG_6318.jpg')"}}
               ></div>
               <div className="p-6">
                 <div className="flex items-center mb-4">
@@ -118,7 +122,7 @@ const Home: React.FC = () => {
             <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
               <div 
                 className="h-48 bg-cover bg-center" 
-                style={{backgroundImage: "url('http://static.photos/office/640x360/3')"}}
+                style={{backgroundImage: "url('/images/events/istockphoto-1424987910-612x612.jpg')"}}
               ></div>
               <div className="p-6">
                 <div className="flex items-center mb-4">
@@ -149,37 +153,43 @@ const Home: React.FC = () => {
           </div>
           
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-gray-100 rounded-xl overflow-hidden">
-              <div className="aspect-w-16 aspect-h-9">
-                <iframe 
-                  className="w-full h-96" 
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                ></iframe>
+            {performanceVideo && (
+              <div className="bg-gray-100 rounded-xl overflow-hidden">
+                <div className="aspect-w-16 aspect-h-9">
+                  <iframe 
+                    className="w-full h-96" 
+                    src={`https://www.youtube.com/embed/${performanceVideo.id}`}
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                    title={performanceVideo.title}
+                  ></iframe>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">{performanceVideo.title}</h3>
+                  <p className="text-gray-600">{performanceVideo.description}</p>
+                </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">The River Between</h3>
-                <p className="text-gray-600">Complete dramatization of Ngugi wa Thiong'o's classic novel</p>
-              </div>
-            </div>
+            )}
             
-            <div className="bg-gray-100 rounded-xl overflow-hidden">
-              <div className="aspect-w-16 aspect-h-9">
-                <iframe 
-                  className="w-full h-96" 
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                ></iframe>
+            {campaignVideo && (
+              <div className="bg-gray-100 rounded-xl overflow-hidden">
+                <div className="aspect-w-16 aspect-h-9">
+                  <iframe 
+                    className="w-full h-96" 
+                    src={`https://www.youtube.com/embed/${campaignVideo.id}`}
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                    title={campaignVideo.title}
+                  ></iframe>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">{campaignVideo.title}</h3>
+                  <p className="text-gray-600">{campaignVideo.description}</p>
+                </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Blossoms of the Savannah</h3>
-                <p className="text-gray-600">Powerful performance highlighting key themes</p>
-              </div>
-            </div>
+            )}
           </div>
           
           <div className="text-center mt-12">
