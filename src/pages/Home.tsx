@@ -310,10 +310,10 @@ const Home: React.FC = () => {
               Contact Us
             </Link>
             <a 
-              href="tel:+254700123456" 
+              href="tel:+254 700 005399" 
               className="bg-transparent hover:bg-yellow-600 border-2 border-white px-8 py-3 rounded-full font-medium transition duration-300"
             >
-              Call +254 700 123456
+              Call ++254 700 005399
             </a>
           </div>
         </div>

@@ -44,8 +44,8 @@ const Navigation: React.FC = () => {
       <nav className="bg-white shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
-            <div className="flex-shrink-0 flex items-center">
-              <i data-feather="award" className="text-yellow-500 mr-2"></i>
+                        <div className="flex-shrink-0 flex items-center">
+              <img src="/android-chrome-512x512.png" alt="BrightStarz Logo" className="w-8 h-8 mr-2" />
               <span className="text-xl font-bold text-gray-800 playfair">BrightStarz Production</span>
             </div>
             
@@ -80,8 +80,8 @@ const Navigation: React.FC = () => {
         style={{ height: '100vh' }}
       >
         <div className="flex justify-between items-center p-4 border-b">
-          <div className="flex items-center">
-            <i data-feather="award" className="text-yellow-500 mr-2"></i>
+                    <div className="flex items-center">
+            <img src="/android-chrome-512x512.png" alt="BrightStarz Logo" className="w-8 h-8 mr-2" />
             <span className="text-xl font-bold text-gray-800 playfair">BrightStarz Production</span>
           </div>
           <button 
