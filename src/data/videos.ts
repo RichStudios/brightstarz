@@ -9,6 +9,24 @@ export interface VideoData {
 
 export const youtubeVideos: VideoData[] = [
   {
+    id: "Buz22CeQ3FY",
+    title: "BEMBEA YA MAISHA - BRIGHTSTARZ ST JOSEPH BARAKA,MAU SUMMIT $MOCHORWE",
+    description: "Community performance captured at St Joseph Baraka, Mau Summit.",
+    category: "performance"
+  },
+  {
+    id: "Ut199BB_qKI",
+    title: "FATHERS OF THE NATIONS",
+    description: "A staged piece titled 'Fathers of the Nations'.",
+    category: "performance"
+  },
+  {
+    id: "4RBL-XD_0pY",
+    title: "BEMBEAYA MAISHA BY TIMOTHY AREGE",
+    description: "A performance featuring Timothy Arege.",
+    category: "performance"
+  },
+  {
     id: "iDm2sQB9GW8",
     title: "Fathers of the Nation Intro by Brightstarz Production",
     description: "An introductory performance by Brightstarz Production.",
@@ -87,7 +105,7 @@ export const youtubeVideos: VideoData[] = [
     category: "performance"
   },
   {
-    id: "wkMsx3q7N4A",
+    id: "XrDm5Aum_ac",
     title: "CHOZI LA HERI PART SIX",
     description: "Part 6 of 'Chozi La Heri'.",
     category: "performance"
@@ -108,6 +126,61 @@ export const youtubeVideos: VideoData[] = [
     id: "QYySKFeWY60",
     title: "POWERFUL MOTIVATION (TEAM WORK IS ALL) HOMABAY BOYS",
     description: "A powerful motivational video featuring Homabay Boys.",
+    category: "campaign"
+  }
+  ,
+  {
+  id: "6BC2V2VzM9I",
+  title: "LOADING",
+  description: "Campaign footage titled 'LOADING'.",
+  category: "documentary"
+  },
+  {
+  id: "QoVYNEOtvyk",
+  title: "Sugarcane Harvesting",
+  description: "Campaign video on sugarcane harvesting.",
+  category: "documentary"
+  },
+  {
+    id: "c2TRn1usUSU",
+    title: "Kisumu Museum",
+    description: "Campaign/documentary footage from Kisumu Museum.",
+    category: "campaign"
+  },
+  {
+    id: "ZvNNL2BHPBY",
+    title: "Kisumu Tour",
+    description: "A tour of Kisumu captured for community campaigns.",
+    category: "campaign"
+  },
+  {
+    id: "NBwiV7Dgpg0",
+    title: "Best moments",
+    description: "Compilation of best moments from our campaigns.",
+    category: "campaign"
+  },
+  {
+    id: "mvI-VINEDBg",
+    title: "Cultural Dance",
+    description: "Cultural dance performance recorded during a campaign.",
+    category: "campaign"
+  },
+  {
+    id: "6go43jr4MyA",
+    title: "Kisumu museum cultural dancers",
+    description: "Cultural dancers at Kisumu museum.",
+    category: "campaign"
+  },
+  {
+    id: "_8brGvS9WO4",
+    title: "You can't believe what happened today during saba saba protests watch for yourself",
+    description: "Footage from Saba Saba protests captured during outreach.",
+  category: "documentary"
+  },
+  {
+    id: "IrqfbWkmy6Q",
+    title: "LETS TALK ABOUT SEX EDUCATION",
+    description: "Campaign video on sex education for youth.",
     category: "campaign"
   }
 ];

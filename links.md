@@ -61,7 +61,7 @@ bookings@brightstarz.co.ke
 
 **Update To:**
 ```
-info@brightstarz.co.ke
+info@brightstarzproduction.com
 ```
 
 ---
@@ -249,7 +249,7 @@ CHOZI LA HERI PART FIVE
 ### Video 14
 **YouTube Video URL:**
 ```
-https://www.youtube.com/watch?v=wkMsx3q7N4A
+https://www.youtube.com/watch?v=XrDm5Aum_ac&t=38s
 ```
 
 **Video Title:**
@@ -299,6 +299,161 @@ POWERFUL MOTIVATION (TEAM WORK IS ALL) HOMABAY BOYS
 
 ---
 
+### Video 18
+**YouTube Video URL:**
+```
+https://www.youtube.com/watch?v=Buz22CeQ3FY&t=14s
+```
+
+**Video Title:**
+```
+BEMBEA YA MAISHA - BRIGHTSTARZ ST JOSEPH BARAKA,MAU SUMMIT $MOCHORWE
+```
+
+---
+
+### Video 19
+**YouTube Video URL:**
+```
+https://www.youtube.com/watch?v=Ut199BB_qKI
+```
+
+**Video Title:**
+```
+FATHERS OF THE NATIONS
+```
+
+---
+
+### Video 20
+**YouTube Video URL:**
+```
+https://www.youtube.com/watch?v=4RBL-XD_0pY
+```
+
+**Video Title:**
+```
+BEMBEAYA MAISHA BY TIMOTHY AREGE
+```
+
+---
+
+### Video 21
+**YouTube Video URL:**
+```
+https://www.youtube.com/watch?v=6BC2V2VzM9I
+```
+
+**Video Title:**
+```
+LOADING
+```
+
+---
+
+### Video 22
+**YouTube Video URL:**
+```
+https://www.youtube.com/watch?v=QoVYNEOtvyk
+```
+
+**Video Title:**
+```
+Sugarcane Harvesting
+```
+
+---
+
+### Video 23
+**YouTube Video URL:**
+```
+https://www.youtube.com/watch?v=c2TRn1usUSU
+```
+
+**Video Title:**
+```
+Kisumu Museum
+```
+
+---
+
+### Video 24
+**YouTube Video URL:**
+```
+https://www.youtube.com/watch?v=ZvNNL2BHPBY
+```
+
+**Video Title:**
+```
+Kisumu Tour
+```
+
+---
+
+### Video 25
+**YouTube Video URL:**
+```
+https://www.youtube.com/watch?v=NBwiV7Dgpg0
+```
+
+**Video Title:**
+```
+Best moments
+```
+
+---
+
+### Video 26
+**YouTube Video URL:**
+```
+https://www.youtube.com/watch?v=mvI-VINEDBg
+```
+
+**Video Title:**
+```
+Cultural Dance
+```
+
+---
+
+### Video 27
+**YouTube Video URL:**
+```
+https://www.youtube.com/watch?v=6go43jr4MyA
+```
+
+**Video Title:**
+```
+Kisumu museum cultural dancers
+```
+
+---
+
+### Video 28
+**YouTube Video URL:**
+```
+https://www.youtube.com/watch?v=_8brGvS9WO4
+```
+
+**Video Title:**
+```
+You can't believe what happened today during saba saba protests watch for yourself
+```
+
+---
+
+### Video 29
+**YouTube Video URL:**
+```
+https://www.youtube.com/watch?v=IrqfbWkmy6Q
+```
+
+**Video Title:**
+```
+LETS TALK ABOUT SEX EDUCATION
+```
+
+---
 
 ## Instructions for AI
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { getAllVideos, getVideosByCategory, VideoData } from '../data/videos';
 import { getAllPhotos, getPhotosByCategory, getImagePath, PhotoData } from '../data/photos';
 
@@ -6,6 +6,12 @@ const Gallery: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'all' | 'performances' | 'campaigns' | 'events' | 'photos'>('all');
   const [videos] = useState<VideoData[]>(getAllVideos());
   const [photos] = useState<PhotoData[]>(getAllPhotos());
+
+  // Refs for YouTube player containers and player instances
+  const playerContainers = useRef<Array<HTMLDivElement | null>>([]);
+  const playersRef = useRef<Array<any>>([]);
+  const [playersReady, setPlayersReady] = useState<boolean[]>([]);
+  const [playersPlaying, setPlayersPlaying] = useState<boolean[]>([]);
 
   React.useEffect(() => {
     // Initialize feather icons after component mounts
@@ -30,6 +36,69 @@ const Gallery: React.FC = () => {
   const getFilteredPhotos = () => {
     return getAllPhotos();
   };
+
+  // Load YouTube IFrame API and create players for each video.
+  const loadYouTubeAPI = (): Promise<void> => {
+    if ((window as any).YT && (window as any).YT.Player) return Promise.resolve();
+    return new Promise((resolve) => {
+      const existing = document.querySelector('script[src="https://www.youtube.com/iframe_api"]');
+      if (existing) {
+        (window as any).onYouTubeIframeAPIReady = () => resolve();
+        return;
+      }
+      const tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      document.body.appendChild(tag);
+      (window as any).onYouTubeIframeAPIReady = () => resolve();
+    });
+  };
+
+  useEffect(() => {
+    let mounted = true;
+    loadYouTubeAPI().then(() => {
+      if (!mounted) return;
+      const YT = (window as any).YT;
+      videos.forEach((video, idx) => {
+        const container = playerContainers.current[idx];
+        if (!container) return;
+        // Avoid recreating player
+        if (playersRef.current[idx]) return;
+        playersRef.current[idx] = new YT.Player(container, {
+          videoId: video.id,
+          playerVars: { rel: 0, modestbranding: 1 },
+          events: {
+            onReady: () => {
+              setPlayersReady((prev) => {
+                const copy = prev.slice();
+                copy[idx] = true;
+                return copy;
+              });
+            },
+            onStateChange: (e: any) => {
+              if (e.data === YT.PlayerState.PLAYING) {
+                setPlayersPlaying((prev) => { const copy = prev.slice(); copy[idx] = true; return copy; });
+                // Pause any other playing players
+                playersRef.current.forEach((p: any, j: number) => {
+                  if (p && j !== idx && p.getPlayerState && p.getPlayerState() === YT.PlayerState.PLAYING) {
+                    p.pauseVideo();
+                  }
+                });
+              } else if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) {
+                setPlayersPlaying((prev) => { const copy = prev.slice(); copy[idx] = false; return copy; });
+              }
+            }
+          }
+        });
+      });
+    });
+
+    return () => {
+      mounted = false;
+      // destroy players on unmount
+      playersRef.current.forEach((p: any) => { if (p && p.destroy) p.destroy(); });
+      playersRef.current = [];
+    };
+  }, [videos]);
 
   const tabClass = (tab: string) =>
     `px-4 py-2 rounded-full font-medium transition duration-300 ${
@@ -119,14 +188,30 @@ const Gallery: React.FC = () => {
                 {getFilteredVideos().map((video, index) => (
                   <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                     <div className="aspect-w-16 aspect-h-9 relative">
-                      <iframe 
-                        className="w-full h-64 rounded-t-xl" 
-                        src={`https://www.youtube.com/embed/${video.id}`}
-                        frameBorder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowFullScreen
+                      <div
+                        ref={(el) => { playerContainers.current[index] = el; return; }}
+                        className="w-full h-64 rounded-t-xl bg-black relative overflow-hidden"
                         title={video.title}
-                      ></iframe>
+                      >
+                        {!playersReady[index] && (
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-12 h-12 border-4 border-yellow-500 border-t-transparent rounded-full animate-spin" aria-hidden="true" />
+                            <span className="sr-only">Loading player</span>
+                          </div>
+                        )}
+                      </div>
+                      {/* Play overlay button to trigger player play and pause others */}
+                      <button
+                        onClick={() => { const p = playersRef.current[index]; if (p && p.playVideo) p.playVideo(); playersRef.current.forEach((pl: any, j: number) => { if (pl && j !== index && pl.getPlayerState && pl.getPlayerState() === (window as any).YT.PlayerState.PLAYING) { pl.pauseVideo(); } }); }}
+                        aria-label={`Play ${video.title}`}
+                        className={`absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-20 transition ${playersReady[index] ? 'pointer-events-none' : ''}`}
+                      >
+                        {!playersPlaying[index] && (
+                          <svg className="w-14 h-14 text-white opacity-90" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5v14l11-7z" />
+                          </svg>
+                        )}
+                      </button>
                       {/* Category Badge */}
                       <div className="absolute top-2 right-2">
                         <span className={`px-2 py-1 rounded text-xs font-medium ${

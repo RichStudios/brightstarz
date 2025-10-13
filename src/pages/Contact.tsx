@@ -10,6 +10,14 @@ const Contact: React.FC = () => {
     message: ''
   });
 
+  // Formspree form ID for native POST submissions.
+  // The form will POST to: https://formspree.io/f/{FORM_ID}
+  const FORMSPREE_ID = 'xgvnpklw';
+
+  const [submitting, setSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -18,11 +26,47 @@ const Contact: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // You can add your form submission logic here
+    setSubmitting(true);
+    setSubmitError(null);
+    setSubmitSuccess(false);
+
+    if (!FORMSPREE_ID) {
+      setSubmitError('Formspree ID is not configured.');
+      setSubmitting(false);
+      return;
+    }
+
+    const endpoint = `https://formspree.io/f/${FORMSPREE_ID}`;
+
+    try {
+      // Formspree accepts JSON when Accept: application/json is provided
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (res.ok) {
+        setSubmitSuccess(true);
+        setFormData({ name: '', email: '', phone: '', school: '', service: '', message: '' });
+      } else {
+        const data = await res.json().catch(() => null);
+        setSubmitError(data?.error || 'Submission failed.');
+      }
+    } catch (err: any) {
+      setSubmitError(err?.message || 'Submission error.');
+    } finally {
+      setSubmitting(false);
+      // auto-hide success after a short delay
+      if (submitSuccess) {
+        setTimeout(() => setSubmitSuccess(false), 5000);
+      }
+    }
   };
 
   React.useEffect(() => {
@@ -51,7 +95,12 @@ const Contact: React.FC = () => {
             {/* Contact Form */}
             <div>
               <h2 className="text-3xl font-bold mb-8 playfair">Send Us a Message</h2>
-              <form className="space-y-6" onSubmit={handleSubmit}>
+              <form
+                className="space-y-6"
+                onSubmit={handleSubmit}
+                action={FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : undefined}
+                method={FORMSPREE_ID ? 'POST' : undefined}
+              >
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -140,12 +189,20 @@ const Contact: React.FC = () => {
                     required
                   ></textarea>
                 </div>
-                <button 
-                  type="submit" 
-                  className="w-full bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-4 rounded-lg font-medium transition duration-300"
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className={`w-full ${submitting ? 'opacity-60 cursor-not-allowed' : 'bg-yellow-500 hover:bg-yellow-600'} text-white px-8 py-4 rounded-lg font-medium transition duration-300`}
                 >
-                  Send Message
+                  {submitting ? 'Sending...' : 'Send Message'}
                 </button>
+
+                {submitSuccess && (
+                  <p className="mt-3 text-green-600">Thanks — your message has been sent.</p>
+                )}
+                {submitError && (
+                  <p className="mt-3 text-red-600">Error: {submitError}</p>
+                )}
               </form>
             </div>
 
