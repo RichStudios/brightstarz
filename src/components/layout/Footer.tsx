@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const currentYear = new Date().getFullYear();
+//const currentYear = new Date().getFullYear();
 const Footer: React.FC = () => {
   React.useEffect(() => {
     // Initialize feather icons after component mounts
@@ -76,7 +76,7 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
-          <p>&copy; {currentYear} BrightStarz Production. All rights reserved.</p>
+          <p>&copy; 2026 BrightStarz Production. All rights reserved.</p>
         </div>
       </div>
     </footer>
