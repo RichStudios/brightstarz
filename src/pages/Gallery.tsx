@@ -33,9 +33,7 @@ const Gallery: React.FC = () => {
     }
   };
 
-  const getFilteredPhotos = () => {
-    return getAllPhotos();
-  };
+
 
   // Load YouTube IFrame API and create players for each video.
   const loadYouTubeAPI = (): Promise<void> => {
@@ -101,10 +99,9 @@ const Gallery: React.FC = () => {
   }, [videos]);
 
   const tabClass = (tab: string) =>
-    `px-4 py-2 rounded-full font-medium transition duration-300 ${
-      activeTab === tab
-        ? 'bg-yellow-500 text-white'
-        : 'bg-gray-200 text-gray-700 hover:bg-yellow-100'
+    `px-4 py-2 rounded-full font-medium transition duration-300 ${activeTab === tab
+      ? 'bg-yellow-500 text-white'
+      : 'bg-gray-200 text-gray-700 hover:bg-yellow-100'
     }`;
 
   return (
@@ -169,16 +166,16 @@ const Gallery: React.FC = () => {
             <>
               <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4 playfair">
-                  {activeTab === 'all' ? 'Featured Videos' : 
-                   activeTab === 'performances' ? 'Setbook Dramatizations' :
-                   activeTab === 'campaigns' ? 'Educational Campaigns' :
-                   'Events & Documentaries'}
+                  {activeTab === 'all' ? 'Featured Videos' :
+                    activeTab === 'performances' ? 'Setbook Dramatizations' :
+                      activeTab === 'campaigns' ? 'Educational Campaigns' :
+                        'Events & Documentaries'}
                 </h2>
                 <p className="text-gray-600 max-w-2xl mx-auto">
                   {activeTab === 'all' ? 'Our complete collection of educational theater content' :
-                   activeTab === 'performances' ? 'Professional dramatizations of KCSE setbooks' :
-                   activeTab === 'campaigns' ? 'Interactive programs addressing critical social issues' :
-                   'Behind-the-scenes and event coverage'}
+                    activeTab === 'performances' ? 'Professional dramatizations of KCSE setbooks' :
+                      activeTab === 'campaigns' ? 'Interactive programs addressing critical social issues' :
+                        'Behind-the-scenes and event coverage'}
                 </p>
                 <div className="w-20 h-1 bg-yellow-500 mx-auto mt-4"></div>
               </div>
@@ -214,12 +211,11 @@ const Gallery: React.FC = () => {
                       </button>
                       {/* Category Badge */}
                       <div className="absolute top-2 right-2">
-                        <span className={`px-2 py-1 rounded text-xs font-medium ${
-                          video.category === 'performance' ? 'bg-blue-500 text-white' :
-                          video.category === 'campaign' ? 'bg-green-500 text-white' :
-                          video.category === 'event' ? 'bg-purple-500 text-white' :
-                          'bg-orange-500 text-white'
-                        }`}>
+                        <span className={`px-2 py-1 rounded text-xs font-medium ${video.category === 'performance' ? 'bg-blue-500 text-white' :
+                            video.category === 'campaign' ? 'bg-green-500 text-white' :
+                              video.category === 'event' ? 'bg-purple-500 text-white' :
+                                'bg-orange-500 text-white'
+                          }`}>
                           {video.category.charAt(0).toUpperCase() + video.category.slice(1)}
                         </span>
                       </div>
@@ -228,7 +224,7 @@ const Gallery: React.FC = () => {
                       <h3 className="font-bold mb-2 text-lg">{video.title}</h3>
                       <p className="text-gray-600 text-sm">{video.description}</p>
                       <div className="mt-4 flex items-center justify-between">
-                        <a 
+                        <a
                           href={`https://www.youtube.com/watch?v=${video.id}`}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -267,7 +263,7 @@ const Gallery: React.FC = () => {
                   <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {getPhotosByCategory('performances').map((photo) => (
                       <div key={photo.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                        <img 
+                        <img
                           src={getImagePath(photo.category, photo.filename)}
                           alt={photo.alt}
                           className="w-full h-48 object-cover"
@@ -290,7 +286,7 @@ const Gallery: React.FC = () => {
                   <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {getPhotosByCategory('audience-fans').map((photo) => (
                       <div key={photo.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                        <img 
+                        <img
                           src={getImagePath(photo.category, photo.filename)}
                           alt={photo.alt}
                           className="w-full h-48 object-cover"
@@ -313,7 +309,7 @@ const Gallery: React.FC = () => {
                   <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {getPhotosByCategory('events').map((photo) => (
                       <div key={photo.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                        <img 
+                        <img
                           src={getImagePath(photo.category, photo.filename)}
                           alt={photo.alt}
                           className="w-full h-48 object-cover"
@@ -338,14 +334,14 @@ const Gallery: React.FC = () => {
           <h2 className="text-3xl font-bold mb-4 playfair">Want to See These Performances Live?</h2>
           <p className="text-gray-600 mb-8">Contact us to bring educational theater to your school or event</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a 
-              href="/contact" 
+            <a
+              href="/contact"
               className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-yellow-500 hover:bg-yellow-600 transition duration-300"
             >
               Book a Performance
               <i data-feather="arrow-right" className="ml-2"></i>
             </a>
-            <a 
+            <a
               href="https://www.youtube.com/@brightstarz-arts"
               target="_blank"
               rel="noopener noreferrer"
